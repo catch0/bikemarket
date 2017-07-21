@@ -1,0 +1,26 @@
+<div>
+<h3>Login</h3>
+<form (submit)="createUser(newUser)">
+  <div>
+    <label> Email</label>
+    <input type = "text" name="email" [(ngModel)]= loginUser.email/>
+  </div>
+  <label> Password</label>
+  <input type = "password" name = "password" [(ngModel)]= loginUser.password />
+  <input type = "submit" value= "login" />
+</form>
+</div>
+<div>
+  <h3>Register</h3>
+  <form>
+    <label>Name</label>
+    <input type = "text" name="name" [(ngModel)]= newUser.name/>
+    <label>Email</label>
+    <input type = "text" name="email" [(ngModel)]= newUser.email/>
+    <label> Password</label>
+    <input type = "password" name="password" [(ngModel)]= newUser.password/>
+    <label>Pasword Confirm</label>
+    <input type = "password" name = "pwconfirm" [(ngModel)]= newuser.pwconfirm />
+    <input type = "submit" value = "Register" />
+  </form>
+</div>
