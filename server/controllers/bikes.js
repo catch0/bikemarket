@@ -1,14 +1,15 @@
 let mongoose = require('mongoose');
 let Bike = mongoose.model('Bike');
+let User = mongoose.model('User');
 
 module.exports = {
-  index: function(req,res){
-    Bike: find({}, function(err,bikes){
-      if(err){
-        return res.json(err);
-      }
-      return res.json(bikes);
-    })
+  index: function(req, res){
+      Bike.find({}).populate('user').exec(function(err, bikes){
+          if(err){
+              return res.json(err);
+          }
+          return res.json(bikes);
+      })
   },
   create: function(res,req){
     Bike.create(req.body, function(err,bike){

@@ -1,26 +1,29 @@
 <div>
 <h3>Login</h3>
-<form (submit)="createUser(newUser)">
+<form class = "form" (submit)="login(loginUser); loginForm.reset()" #loginForm="ngForm" >
   <div>
     <label> Email</label>
-    <input type = "text" name="email" [(ngModel)]= loginUser.email/>
+    <input type = "text" name="email" [(ngModel)]="loginUser.email" />
   </div>
   <label> Password</label>
-  <input type = "password" name = "password" [(ngModel)]= loginUser.password />
+  <input type = "password" name = "password" [(ngModel)]="loginUser.password" />
   <input type = "submit" value= "login" />
 </form>
+{{loginErrors | json}}
+<p [ngStyle]="{'color':'red'}" *ngFor="let error of loginErrors">{{ error }}</p>
 </div>
 <div>
   <h3>Register</h3>
-  <form>
+  <form class = "form" (submit)="createUser(newUser); registerForm.reset()" #registerForm= "ngForm">
     <label>Name</label>
-    <input type = "text" name="name" [(ngModel)]= newUser.name/>
+    <input type = "text" name="name"  [(ngModel)]="newUser.name"/>
     <label>Email</label>
-    <input type = "text" name="email" [(ngModel)]= newUser.email/>
+    <input type = "text" name="email" [(ngModel)]="newUser.email"/>
     <label> Password</label>
-    <input type = "password" name="password" [(ngModel)]= newUser.password/>
+    <input type = "password" name="password" [(ngModel)]="newUser.password">
     <label>Pasword Confirm</label>
-    <input type = "password" name = "pwconfirm" [(ngModel)]= newuser.pwconfirm />
-    <input type = "submit" value = "Register" />
+    <input type = "password" name = "pwconfirm" [(ngModel)]="newUser.pwconfirm">
+    <input type = "submit" value = "Register"   />
   </form>
+<p [ngStyle]="{'color':'red'}" *ngFor="let error of registrationErrors">{{ error }}</p>
 </div>

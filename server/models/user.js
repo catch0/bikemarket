@@ -8,8 +8,8 @@ let UserSchema = new mongoose.Schema({
   },
   email:{
     type:String,
-    required: [true, 'I need an email sir/maam!'],
-    unique: [true, 'Good news, you have already registerd']
+    required: [true, 'I need an email please'],
+    unique: [true, 'Good news you have already registerd']
   },
   password:{
     type:String,
@@ -23,11 +23,11 @@ let UserSchema = new mongoose.Schema({
 }, {timestamps: true});
 
 UserSchema.pre('save', function(next){
-  this.password = bcrypt.hashSynch(this.password, bcrypt.genSalt(10));
+  this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10));
   next();
 })
 
-UserSchema.methods.authenticate=function(password){
+UserSchema.methods.authenticate= function(password){
   return bcrypt.compareSynch(password, this.password);
 }
 

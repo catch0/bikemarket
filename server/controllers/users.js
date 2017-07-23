@@ -1,7 +1,6 @@
 let mongoose = require('mongoose');
 let User = mongoose.model('User');
-let bcrypt = require('bcrypt');
-
+// let bcrypt = require('bcrypt');
 
 module.exports = {
   session: function(req,res){
@@ -18,6 +17,7 @@ module.exports = {
       if(err){
         return res.json
       }
+      return res.json(users);
     })
   },
   //makin sure the data we send is ready for the database we will either error out or create a new user
@@ -31,7 +31,7 @@ module.exports = {
     })
   },
   show: function(req,res){
-    User.findById(req.params.id, function(err,user){
+    User.findById(req.params.id).populate('bikes').exec(function(err,user){
       if(err){
         return res.json(err);
       }

@@ -3,7 +3,8 @@ let fs = require('fs');
 
 //this overides the promise library
 mongoose.Promise = global.Promise;
-//lets load in those models
+
+//lets load in those models and connect to the database
 mongoose.connect('mongodb://localhost/bicycle_market',{useMongoClient:true} );
 let models_path = __dirname +'./../models';
 

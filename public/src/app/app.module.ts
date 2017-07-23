@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {AppRoutingModule} from './app-routing.module';
+
 //Components
 
 import { AppComponent } from './app.component';
@@ -10,16 +12,19 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent} from './header/header.component';
 //Services
 import {UserService} from './user.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
