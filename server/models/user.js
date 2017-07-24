@@ -28,7 +28,7 @@ UserSchema.pre('save', function(next){
 })
 
 UserSchema.methods.authenticate= function(password){
-  return bcrypt.compareSynch(password, this.password);
+  return bcrypt.compareSync(password, this.password);
 }
 
 //now lets register that Schema

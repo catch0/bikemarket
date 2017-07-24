@@ -1,32 +1,40 @@
-//modules
+//Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {AppRoutingModule} from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule} from './app-routing.module';
+
 
 //Components
-
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
-import { HeaderComponent} from './header/header.component';
+import { BrowseComponent } from './browse/browse.component';
+import { ListingsComponent } from './listings/listings.component';
+
 //Services
-import {UserService} from './user.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserService } from './user.service';
+import { BikeService } from './bike.service';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     LoginComponent,
-    DashboardComponent
+    BrowseComponent,
+    ListingsComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpModule,
+    FormsModule,
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [UserService, BikeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
