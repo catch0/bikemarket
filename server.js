@@ -20,6 +20,6 @@ require('./server/config/mongoose');
 //connect with our routes file which is a function that take in app
 require('./server/config/routes')(app);
 
-app.listen(6789, function(){
+app.listen(8000, function(){
   console.log('listening on port 6789...')
 })
